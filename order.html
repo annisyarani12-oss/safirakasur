@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KasurPulas | Order & Cart</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styleee.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">Kasur<span>Pulas</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="produk.html">Produk</a></li>
+            <li><a href="order.html">Order</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+    </header>
+
+    <div class="order-container">
+        <div class="form-box">
+            <h2 style="text-align: center; margin-bottom: 25px;">Form Pemesanan</h2>
+            
+            <div class="input-group">
+                <label>Pilih Produk:</label>
+                <select id="select-produk" onchange="tambahKeKeranjang()">
+                    <option value="">-- Klik untuk menambah --</option>
+                    <option value="Floresta Rebonded 160x200|5000000">Floresta Rebonded 160x200 - Rp5.000.000</option>
+                    <option value="Cassola 180x200|7500000">Cassola 180x200 - Rp7.500.000</option>
+                    <option value="Floresta 120x200|3800000">Floresta 120x200 - Rp3.800.000</option>
+                    <option value="Set Banling|1200000">Set Banling - Rp1.200.000</option>
+                    <option value="Sofa Bed OLYMPIC|2500000">Sofa Bed OLYMPIC - Rp2.500.000</option>
+                    <option value="Matras Kasur Romance|800000">Matras Kasur Romance - Rp800.000</option>
+                    <option value="Bantal Cinta|150000">Bantal Cinta - Rp150.000</option>
+                    <option value="BEDCAVER Premium|500000">BEDCAVER Premium - Rp500.000</option>
+                    <option value="Sprei Kotak-Kotak|250000">Sprei Kotak-Kotak - Rp250.000</option>
+                </select>
+            </div>
+
+            <div class="cart-box">
+                <h4>🛒 Keranjang:</h4>
+                <div id="cart-items-list">
+                    <p style="color: #999; font-size: 13px;">Belum ada produk...</p>
+                </div>
+                <div id="cart-total-display" class="total-display">Total: Rp 0</div>
+            </div>
+
+            <form id="orderForm">
+                <input type="text" id="nama" placeholder="Nama Lengkap" class="input-field" required>
+                <input type="email" id="email" placeholder="Alamat Email" class="input-field" required>
+                <select id="pembayaran" class="input-field" required>
+                    <option value="">Pilih Metode Pembayaran</option>
+                    <option value="Transfer BNI">Transfer BNI</option>
+                    <option value="Dana">Dana</option>
+                    <option value="COD">COD</option>
+                </select>
+                <textarea id="alamat" placeholder="Alamat Pengiriman Lengkap" rows="3" class="input-field" required></textarea>
+                <button type="submit" class="btn-checkout">Checkout & Buat Struk</button>
+            </form>
+        </div>
+
+        <div id="nota-box">
+            <div class="struk-header">
+                <h2>KASUR PULAS</h2>
+                <p>Palembang, Sumatera Selatan</p>
+                <p id="res-invoice" style="font-size: 11px;"></p>
+            </div>
+            <div class="nota-item"><span>Waktu:</span> <span id="res-waktu"></span></div>
+            <div class="nota-item"><span>Nama:</span> <span id="res-nama"></span></div>
+            <div class="nota-item"><span>Metode:</span> <span id="res-bayar"></span></div>
+            <div class="payment-info">
+                <p style="font-weight: bold;">Instruksi:</p>
+                <div id="info-detail-bayar"></div>
+                <p style="font-size: 10px; color: #777;">a.n KasurPulas Indonesia</p>
+            </div>
+            <div id="res-list-item" class="res-list"></div>
+            <div class="total-akhir">
+                <div class="nota-item"><span>TOTAL</span> <span id="res-total"></span></div>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <p style="font-size: 11px;">Terima kasih!</p>
+                <button class="btn-print" onclick="window.print()">Cetak Struk</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+    <div class="footer-container">
+        <div class="footer-col footer-logo-info">
+            <div class="logo">Kasur<span>Pulas</span></div>
+            <p class="slogan">
+                Tidur Nyenyak, Bangun Segar. Kami menghadirkan teknologi tidur premium untuk istirahat maksimal keluarga Indonesia.
+            </p>
+            <div class="social-links">
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Youtube"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
+                <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/3256/3256013.png" alt="Twitter"></a>
+            </div>
+        </div>
+
+        <div class="footer-col footer-contact">
+            <h4>Hubungi Kami</h4>
+            <div class="contact-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/10714/10714777.png" alt="" class="contact-icon">
+                <span>(021) 123-4567</span>
+            </div>
+            <div class="contact-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/2099/2099199.png" alt="" class="contact-icon">
+                <span>cs@kasurpulas.com</span>
+            </div>
+            <div class="contact-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/2776/2776067.png" alt="" class="contact-icon">
+                <span>Jl. Nyenyak No.1, Palembang, Sumsel</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-copyright">
+        <p>© 2026 KasurPulas Indonesia. Dibuat dengan 💖 oleh Annisya.</p>
+    </div>
+</footer>
+
+    <script>
+        let keranjang = [];
+        let totalHarga = 0;
+
+        function tambahKeKeranjang() {
+            const select = document.getElementById('select-produk');
+            if (!select.value) return;
+            const [nama, harga] = select.value.split('|');
+            keranjang.push({ nama, harga: parseInt(harga) });
+            updateTampilanKeranjang();
+            select.value = ""; 
+        }
+
+        function updateTampilanKeranjang() {
+            const list = document.getElementById('cart-items-list');
+            const totalDisplay = document.getElementById('cart-total-display');
+            list.innerHTML = "";
+            totalHarga = 0;
+            if (keranjang.length === 0) {
+                list.innerHTML = `<p style="color: #999; font-size: 13px;">Belum ada produk...</p>`;
+            } else {
+                keranjang.forEach((item) => {
+                    list.innerHTML += `<div class="cart-item"><span>${item.nama}</span><span>Rp ${item.harga.toLocaleString()}</span></div>`;
+                    totalHarga += item.harga;
+                });
+            }
+            totalDisplay.innerText = `Total: Rp ${totalHarga.toLocaleString()}`;
+        }
+
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (keranjang.length === 0) return alert("Keranjang masih kosong!");
+            const sekarang = new Date();
+            const metode = document.getElementById('pembayaran').value;
+            document.getElementById('res-invoice').innerText = "INV-" + Math.floor(Math.random() * 900000 + 100000);
+            document.getElementById('res-waktu').innerText = sekarang.toLocaleString('id-ID');
+            document.getElementById('res-nama').innerText = document.getElementById('nama').value;
+            document.getElementById('res-bayar').innerText = metode;
+            document.getElementById('res-total').innerText = "Rp " + totalHarga.toLocaleString();
+            
+            const infoBayar = document.getElementById('info-detail-bayar');
+            if(metode === "Transfer BNI") infoBayar.innerHTML = "Rekening: 123-456-7890";
+            else if(metode === "Dana") infoBayar.innerHTML = "DANA: 0812-3456-7890";
+            else infoBayar.innerHTML = "Siapkan uang tunai.";
+
+            const resList = document.getElementById('res-list-item');
+            resList.innerHTML = "";
+            keranjang.forEach(item => {
+                resList.innerHTML += `<div class="nota-item"><span>${item.nama}</span><span>Rp ${item.harga.toLocaleString()}</span></div>`;
+            });
+            document.getElementById('nota-box').style.display = 'block';
+            document.getElementById('nota-box').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
